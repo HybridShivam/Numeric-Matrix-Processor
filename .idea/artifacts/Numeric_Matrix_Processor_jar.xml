@@ -2,6 +2,9 @@
   <artifact type="jar" name="Numeric_Matrix_Processor:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Numeric_Matrix_Processor_jar</output-path>
     <root id="archive" name="Numeric_Matrix_Processor.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/Numeric Matrix Processor/task/src/main/resources/META-INF/MANIFEST.MF" />
+      </element>
       <element id="module-output" name="Numeric_Matrix_Processor-task_main" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.5/f645ed69d595b24d4cf8b3fbb64cc505bede8829/gson-2.8.5.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.11/4e031bb61df09069aeb2bffb4019e7a5034a4ee0/junit-4.11.jar" path-in-jar="/" />
