@@ -16,6 +16,9 @@ IntelliJ/ Eclipse or any other IDE.
 # Built With
 IntelliJ IDEA
 
+# Stable Release History
+v1.0
+
 # Authors
 Shivam Baghel- Initial work - HybridShivam
 
