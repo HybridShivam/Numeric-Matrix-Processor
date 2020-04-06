@@ -116,6 +116,9 @@ files:
         }
     }
   learner_created: false
+- name: src/processor/Stage2.java
+  visible: true
+  learner_created: true
 - name: src/processor/Main.java
   visible: true
   text: |
@@ -128,5 +131,5 @@ files:
     }
   learner_created: false
 feedback_link: https://hyperskill.org/projects/60/stages/324/implement
-status: Unchecked
-record: -1
+status: Solved
+record: 2
