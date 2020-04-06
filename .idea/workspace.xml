@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5e198929-e2b2-4f47-8d66-305c43288a0a" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="ProjectId" id="1a9pjh0Fotu5JPbqF1Dxnv1iwXi" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="show.inlinked.gradle.project.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="processor.Main" />
+      <module name="Numeric_Matrix_Processor-task_main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="processor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e198929-e2b2-4f47-8d66-305c43288a0a" name="Default Changelist" comment="" />
+      <created>1586157800561</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586157800561</updated>
+      <workItem from="1586157831561" duration="603000" />
+      <workItem from="1586158514860" duration="640000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="259" y="137" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586158355941">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="259" y="137" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1586158355941" />
+    <state width="1537" height="160" key="GridCell.Tab.0.bottom" timestamp="1586159141336">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1537" height="160" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586159141336" />
+    <state width="1537" height="160" key="GridCell.Tab.0.center" timestamp="1586159141336">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1537" height="160" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586159141336" />
+    <state width="1537" height="160" key="GridCell.Tab.0.left" timestamp="1586159141335">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1537" height="160" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586159141335" />
+    <state width="1537" height="160" key="GridCell.Tab.0.right" timestamp="1586159141336">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1537" height="160" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586159141336" />
+  </component>
+</project>
