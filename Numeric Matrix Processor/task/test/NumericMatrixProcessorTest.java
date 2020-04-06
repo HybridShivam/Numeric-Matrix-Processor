@@ -4,8 +4,10 @@ import processor.Main;
 import org.hyperskill.hstest.v6.testcase.CheckResult;
 import org.hyperskill.hstest.v6.testcase.TestCase;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-import java.util.*;
 import static java.lang.Math.abs;
 
 
@@ -229,6 +231,141 @@ public class NumericMatrixProcessorTest extends BaseStageTest<TestClue> {
                         "6 0\n" +
                         "0 9\n" +
                         "7 7\n" +
+                        "0"),
+
+            new TestCase<TestClue>()
+                .setAttach(new TestClue(
+                    "Checking if diagonal transposition algorithm is correct",
+                    new Double[]{
+                        1d, 6d, 4d,
+                        7d, 6d, 2d,
+                        7d, 4d, 1d,
+                    }))
+                .setInput(
+                    "4\n" +
+                        "1\n" +
+                        "3 3\n" +
+                        "1 7 7\n" +
+                        "6 6 4\n" +
+                        "4 2 1\n" +
+                        "0"),
+
+            new TestCase<TestClue>()
+                .setAttach(new TestClue(
+                    "Checking if diagonal transposition algorithm is correct",
+                    new Double[]{
+                        1d, 6d, 4d,
+                        7d, 6d, 5d,
+                        7d, 4d, 1d,
+                    }))
+                .setInput(
+                    "4\n" +
+                        "1\n" +
+                        "3 3\n" +
+                        "1 7 7\n" +
+                        "6 6 4\n" +
+                        "4 5 1\n" +
+                        "0"),
+
+            new TestCase<TestClue>()
+                .setAttach(new TestClue(
+                    "Checking if diagonal transposition algorithm is correct",
+                    new Double[]{
+                        1d, 6d, 4d,
+                        7d, 6d, 2d,
+                        7d, 4d, 1d,
+                    }))
+                .setInput(
+                    "4\n" +
+                        "2\n" +
+                        "3 3\n" +
+                        "1 2 4\n" +
+                        "4 6 6\n" +
+                        "7 7 1\n" +
+                        "0"),
+
+            new TestCase<TestClue>()
+                .setAttach(new TestClue(
+                    "Checking if diagonal transposition algorithm is correct",
+                    new Double[]{
+                        1d, 6d, 4d,
+                        7d, 6d, 5d,
+                        7d, 4d, 1d,
+                    }))
+                .setInput(
+                    "4\n" +
+                        "2\n" +
+                        "3 3\n" +
+                        "1 5 4\n" +
+                        "4 6 6\n" +
+                        "7 7 1.0\n" +
+                        "0"),
+
+            new TestCase<TestClue>()
+                .setAttach(new TestClue(
+                    "Checking if transposition algorithm is correct",
+                    new Double[]{
+                        2d, 4d, 5d, 6d,
+                        6d, 6d, 7d, 8d,
+                        5d, 0d, 0d, 1d,
+                        8d, 8d, 2d, 9d
+                    }))
+                .setInput(
+                    "4\n" +
+                        "3\n" +
+                        "4 4\n" +
+                        "6 5 4 2\n" +
+                        "8 7 6 6\n" +
+                        "1 0 0 5.0\n" +
+                        "9 2 8 8\n" +
+                        "0"),
+
+            new TestCase<TestClue>()
+                .setAttach(new TestClue(
+                    "Checking if transposition algorithm is correct",
+                    new Double[]{
+                        2d, 4d, 5d, 6d,
+                        6d, 6d, 7d, 8d,
+                        5d, 0d, 0d, 1d,
+                        8d, 8d, 2d, 9d
+                    }))
+                .setInput(
+                    "4\n" +
+                        "4\n" +
+                        "4 4\n" +
+                        "8 8 2 9\n" +
+                        "5 0 0 1\n" +
+                        "6 6 7 8.0\n" +
+                        "2 4 5 6\n" +
+                        "0"),
+
+            new TestCase<TestClue>()
+                .setAttach(new TestClue(
+                    "Checking if determinant algorithm is correct",
+                    new Double[]{
+                        31d
+                    }))
+                .setInput(
+                    "5\n" +
+                        "3 3\n" +
+                        "1 2 3\n" +
+                        "4 5 7\n" +
+                        "10 22 23\n" +
+                        "0"),
+
+            new TestCase<TestClue>()
+                .setAttach(new TestClue(
+                    "Checking if determinant algorithm is correct",
+                    new Double[]{
+                        45.2197d
+                    }))
+                .setInput(
+                    "5\n" +
+                        "4 4\n" +
+                        "2.65 3.54 3.88 8.99\n" +
+                        "3.12 5.45 7.77 5.56\n" +
+                        "5.31 2.23 2.33 9.81\n" +
+                        "1.67 1.67 1.01 9.99\n" +
                         "0")
         );
     }

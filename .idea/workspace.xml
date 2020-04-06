@@ -14,9 +14,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/frameworkLessonHistory/storage.storageData" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/frameworkLessonHistory/storage.storageData" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/frameworkLessonHistory/storage.storageRecordIndex" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/frameworkLessonHistory/storage.storageRecordIndex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/Numeric Matrix Processor/task/Numeric_Matrix_Processor-task_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/Numeric Matrix Processor/task/Numeric_Matrix_Processor-task_test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/util/util_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/util/util_test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Numeric Matrix Processor/Matrix by matrix multiplication/task-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Numeric Matrix Processor/Matrix by matrix multiplication/task-info.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Numeric Matrix Processor/Transpose/task-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Numeric Matrix Processor/Transpose/task-info.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Numeric Matrix Processor/task/build/reports/tests/test/classes/NumericMatrixProcessorTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/Numeric Matrix Processor/task/build/reports/tests/test/classes/NumericMatrixProcessorTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Numeric Matrix Processor/task/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Numeric Matrix Processor/task/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Numeric Matrix Processor/task/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/Numeric Matrix Processor/task/build/reports/tests/test/packages/default-package.html" afterDir="false" />
@@ -25,7 +27,7 @@
       <change beforePath="$PROJECT_DIR$/Numeric Matrix Processor/task/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/Numeric Matrix Processor/task/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Numeric Matrix Processor/task/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Numeric Matrix Processor/task/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Numeric Matrix Processor/task/src/processor/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Numeric Matrix Processor/task/src/processor/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Numeric Matrix Processor/task/src/processor/Stage2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Numeric Matrix Processor/task/test/NumericMatrixProcessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Numeric Matrix Processor/task/test/NumericMatrixProcessorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +117,7 @@
       <workItem from="1586157831561" duration="603000" />
       <workItem from="1586158514860" duration="4008000" />
       <workItem from="1586162577300" duration="1057000" />
-      <workItem from="1586163688883" duration="1465000" />
+      <workItem from="1586163688883" duration="1715000" />
     </task>
     <servers />
   </component>

@@ -29,6 +29,16 @@ public class Main {
                     matrixOutput(matrixMul(matrixCreate(sc),matrixCreate(sc)),oper);
                     break;
                 }
+                case 4: {
+                    System.out.println("1. Main diagonal");
+                    System.out.println("2. Side diagonal");
+                    System.out.println("3. Vertical line");
+                    System.out.println("4. Horizontal line");
+                    System.out.print("Your choice: ");
+
+                    matrixOutput(matrixTrans(sc.nextInt(),matrixCreate(sc)),oper);
+                    break;
+                }
                 default: {
                     System.out.println("Not an option. Try again.");
                     break;
@@ -42,6 +52,7 @@ public class Main {
         System.out.println("1. Add matrices");
         System.out.println("2. Multiply matrix to a constant");
         System.out.println("3. Multiply matrices");
+        System.out.println("4. Transpose matrix");
         System.out.println("0. Exit");
         System.out.print("Your choice: ");
         return sc.nextInt();
@@ -167,4 +178,70 @@ public class Main {
         }
 
     }
+
+
+    private static double[][] matrixTrans (int oper, double[][] matrixA){
+
+        double[][] matrix = new double[matrixA.length][matrixA[0].length];
+
+        switch (oper) {
+            case 1: {
+                if (matrixA.length == matrixA[0].length) {
+                    for (int i = 0; i < matrixA.length; i++) {
+                        for (int j = 0; j < matrixA.length; j++) {
+                            matrix[i][j] = matrixA[j][i];
+                        }
+                    }
+                    return matrix;
+                } else {
+                    return null;
+                }
+
+            }
+            case 2: {
+                if (matrixA.length == matrixA[0].length) {
+                    int a=0;
+                    int b=0;
+                    for (int i = matrixA.length - 1; i >= 0; i--) {
+                        for (int j = matrixA.length - 1; j >= 0; j--) {
+                            matrix[a][b] = matrixA[j][i];
+                            b++;
+                        }
+                        a++;
+                        b=0;
+                    }
+                    return matrix;
+                } else {
+                    return null;
+                }
+            }
+            case 3: {
+                int b=0;
+                for (int i = 0; i < matrixA.length; i++) {
+                    for (int j = matrixA.length - 1; j >= 0; j--) {
+                        matrix[i][b] = matrixA[i][j];
+                        b++;
+                    }
+                    b=0;
+                }
+                return matrix;
+            }
+            case 4: {
+                int a=0;
+                for (int i = matrixA.length - 1; i >= 0; i--) {
+                    //noinspection ManualArrayCopy
+                    for (int j = 0; j < matrixA.length; j++) {
+                        matrix[a][j] = matrixA[i][j];
+                    }
+                    a++;
+                }
+                return matrix;
+            }
+            default:
+                break;
+        }
+        return null;
+    }
+
+
 }
