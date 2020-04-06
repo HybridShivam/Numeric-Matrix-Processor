@@ -16,8 +16,11 @@ IntelliJ/ Eclipse or any other IDE.
 # Built With
 IntelliJ IDEA
 
+# Stable Release History
+v1.0
+
 # Authors
 Shivam Baghel- Initial work - HybridShivam
 
 # License
-This project is licensed under the MIT License - see the LICENSE.md file for details
+This project is licensed under the GPL License - see the LICENSE.md file for details
