@@ -39,6 +39,10 @@ public class Main {
                     matrixOutput(matrixTrans(sc.nextInt(),matrixCreate(sc)),oper);
                     break;
                 }
+                case 5: {
+                    matrixOutput(matrixDetInput(matrixCreate(sc)),oper);
+                    break;
+                }
                 default: {
                     System.out.println("Not an option. Try again.");
                     break;
@@ -242,6 +246,47 @@ public class Main {
         }
         return null;
     }
+
+
+
+
+
+    private static Double matrixDet(double[][] matrix){
+        if (matrix.length == 2) {return matrix[0][0]*matrix[1][1]-matrix[0][1]*matrix[1][0];}
+        else {
+            double det = 0.0;
+            for (int j = 0; j<matrix.length; j++){
+                if(j%2 == 0) {det += matrix[0][j]*matrixDet(matrixMinor(matrix,0,j));}
+                else {det -= matrix[0][j]*matrixDet(matrixMinor(matrix,0,j));}
+            }
+            return det;
+        }
+    }
+
+    private static Double matrixDetInput (double[][] matrixA){
+
+        if (matrixA.length == matrixA[0].length){
+            return matrixDet(matrixA);
+        }
+        else {return null;}
+
+
+    }
+
+    private static double[][] matrixMinor(double[][] matrix, int row, int col){
+        double [][] temp = new double[matrix.length-1][matrix.length-1];
+        int itemp = 0;
+        int jtemp = 0;
+        for (int i = 0; i<matrix.length; i++){
+            for (int j = 0; j<matrix.length; j++){
+                if (i != row && j != col) {temp[itemp][jtemp] = matrix[i][j]; jtemp++;}
+            }
+            jtemp=0;
+            if (i != row) {itemp++;}
+        }
+        return temp;
+    }
+
 
 
 }
