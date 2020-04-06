@@ -11,6 +11,7 @@ public class Main {
         //User Choice
         int choice = matrixMainMenu(sc);
         //Main While Loop
+        //Repeat until user enters 0
         while (choice != 0) {
             switch (choice) {
                 case 1: {
@@ -59,7 +60,7 @@ public class Main {
 
 
 
-    //Main Switching Logic
+    //Main Menu Screen
     private static int matrixMainMenu(Scanner sc){
         System.out.println("1. Add matrices");
         System.out.println("2. Multiply matrix to a constant");
