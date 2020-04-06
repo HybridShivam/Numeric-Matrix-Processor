@@ -1,151 +1,170 @@
 package processor;
-
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
+@SuppressWarnings("ConstantConditions")
 public class Main {
     public static void main(String[] args) {
+        //Create Scanner Object
         Scanner sc = new Scanner(System.in);
-        System.out.println("1. Add matrices\n" +
-                "2. Multiply matrix to a constant\n" +
-                "3. Multiply matrices\n" +
-                "0. Exit");
-        System.out.print("Your choice: ");
-        int choice = sc.nextInt();
-        while (choice != 0) {
-            switch (choice) {
-                case 1:
-                    Main.addMatrices(sc);
+        //User Choice
+        int oper = mMenu(sc);
+        //Main While Loop
+        while (oper != 0) {
+            switch (oper) {
+                case 1: {
+                    matrixOutput(addMatrix(matrixCreate(sc),matrixCreate(sc)), oper);
                     break;
-                case 2:
-                    multipyByConstant(sc);
+                }
+                case 2: {
+                    double[][] matrixTemp;
+                    matrixTemp =  matrixCreate(sc);
+                    System.out.print("Enter constant: ");
+                    double conC = sc.nextDouble();
+                    matrixOutput(constMul(matrixTemp,conC),oper);
                     break;
-                case 3:
-                    multiplyMatrices(sc);
+                }
+                case 3: {
+                    matrixOutput(matrixMul(matrixCreate(sc),matrixCreate(sc)),oper);
                     break;
-            }
-            choice=sc.nextInt();
-        }
-    }
-
-    private static void multiplyMatrices(Scanner sc) {
-        System.out.print("Enter size of first matrix: ");
-        int a1 = sc.nextInt();
-        int a2 = sc.nextInt();
-
-        double[][] matrix1 = new double[a1][a2];
-        double[][] matrix3 = new double[a1][a2];
-        for (int i = 0; i < a1; i++) {
-            for (int j = 0; j < a2; j++) {
-                matrix1[i][j] = sc.nextDouble();
-            }
-        }
-        System.out.print("Enter size of second matrix: ");
-        int b1 = sc.nextInt();
-        int b2 = sc.nextInt();
-        double[][] matrix2 = new double[b1][b2];
-        for (int i = 0; i < b1; i++) {
-            for (int j = 0; j < b2; j++) {
-                matrix2[i][j] = sc.nextDouble();
-            }
-        }
-
-        double sum=0;
-        if (a2 == b1) {
-            for (int i = 0; i < a1; i++) {
-                for (int j = 0; j < b2; j++) {
-                    for (int k = 0; k < b1; k++)
-                        sum = sum + matrix1[i][k]*matrix2[k][j];
-                    matrix3[i][j] = sum;
-                    sum = 0;
                 }
-            }
-
-            for (int i = 0; i < a1; i++) {
-                for (int j = 0; j < a2; j++) {
-                    System.out.print(matrix3[i][j]);
-                    if (j != a2 - 1) {
-                        System.out.print(" ");
-                    }
-                }
-                System.out.println();
-            }
-        } else {
-            System.out.println("ERROR");
-        }
-    }
-
-    public static void addMatrices(Scanner sc){
-        int a1 = sc.nextInt();
-        int a2 = sc.nextInt();
-
-        int[][] matrix1 = new int[a1][a2];
-        int[][] matrix3 = new int[a1][a2];
-        for (int i = 0; i < a1; i++) {
-            for (int j = 0; j < a2; j++) {
-                matrix1[i][j] = sc.nextInt();
-            }
-        }
-        int b1 = sc.nextInt();
-        int b2 = sc.nextInt();
-        int[][] matrix2 = new int[b1][b2];
-        for (int i = 0; i < b1; i++) {
-            for (int j = 0; j < b2; j++) {
-                matrix2[i][j] = sc.nextInt();
-            }
-        }
-
-        if (a1 == b1 && a2 == b2) {
-            for (int i = 0; i < a1; i++) {
-                for (int j = 0; j < a2; j++) {
-                    matrix3[i][j] = matrix2[i][j] + matrix1[i][j];
-                }
-            }
-
-            for (int i = 0; i < a1; i++) {
-                for (int j = 0; j < a2; j++) {
-                    System.out.print(matrix3[i][j]);
-                    if (j != a2 - 1) {
-                        System.out.print(" ");
-                    }
-                }
-                System.out.println();
-            }
-        } else {
-            System.out.println("ERROR");
-        }
-    }
-
-
-
-    public static void multipyByConstant(Scanner sc){
-        int a1 = sc.nextInt();
-        int a2 = sc.nextInt();
-
-        int[][] matrix1 = new int[a1][a2];
-        int[][] matrix2 = new int[a1][a2];
-        for (int i = 0; i < a1; i++) {
-            for (int j = 0; j < a2; j++) {
-                matrix1[i][j] = sc.nextInt();
-            }
-        }
-        int multiplier;
-        multiplier=sc.nextInt();
-        for (int i = 0; i < a1; i++) {
-            for (int j = 0; j < a2; j++) {
-                matrix2[i][j] = multiplier*matrix1[i][j];
-            }
-        }
-
-        for (int i = 0; i < a1; i++) {
-            for (int j = 0; j < a2; j++) {
-                System.out.print(matrix2[i][j]);
-                if (j != a2 - 1) {
-                    System.out.print(" ");
+                default: {
+                    System.out.println("Not an option. Try again.");
+                    break;
                 }
             }
             System.out.println();
+            oper = mMenu(sc);
+        }
+    }
+    private static int mMenu (Scanner sc){
+        System.out.println("1. Add matrices");
+        System.out.println("2. Multiply matrix to a constant");
+        System.out.println("3. Multiply matrices");
+        System.out.println("0. Exit");
+        System.out.print("Your choice: ");
+        return sc.nextInt();
+    }
+
+    private static double[][] matrixCreate (Scanner sc){
+
+        System.out.print("Enter size of matrix: ");
+        double[][] matrix = new double[sc.nextInt()][sc.nextInt()];
+        if (matrix.length <= 0 || matrix[0].length <= 0) {return null;}
+        else {
+            System.out.println("Enter matrix:");
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < matrix[0].length; j++) {
+                    matrix[i][j] = sc.nextDouble();
+                }
+            }
+            return matrix;
         }
     }
 
-}
+    private static void matrixOutput(double[][] matrix, int oper){
 
+        if (matrix == null){System.out.println("ERROR");}
+        else {
+            DecimalFormat df = new DecimalFormat("#.##");
+            df.setRoundingMode(RoundingMode.HALF_DOWN);
+            int[] max = new int[matrix[0].length];
+            switch(oper){
+
+                case 1: {System.out.println("The addition result is:");break;}
+                case 2:
+                case 3: {System.out.println("The multiplication result is:");break;}
+                case 4:
+                case 6: {System.out.println("The result is: ");break;}
+
+            }
+            for(double[] row : matrix){
+                for (int j = 0; j<row.length;j++){
+                    if (df.format(row[j]+0).length() > max[j]) {max[j] = df.format(row[j]+0).length();}
+                }
+            }
+
+            for (double[] row : matrix){
+                for (int j=0; j<matrix[0].length; j++){
+                    System.out.format("%" + max[j] + "s ", df.format(row[j]+0));
+                }
+                System.out.println();
+            }
+        }
+
+    }
+
+    private static void matrixOutput(Double value, int oper) {
+
+        if (value != null) {
+            //noinspection SwitchStatementWithTooFewBranches
+            switch (oper){
+                case 5: {
+                    //noinspection SwitchStatementWithoutDefaultBranch
+                    System.out.println("The determinant is: ");
+                    System.out.print(value);
+                    break;
+                }
+            }
+        }else{System.out.print("ERROR");}
+
+    }
+
+    private static double[][] addMatrix (double[][] matrixA,double[][] matrixB){
+
+        if (matrixA == null || matrixB == null) {return null;}
+
+        if (matrixA[0].length == matrixB[0].length && matrixA.length == matrixB.length) {
+
+            double[][] matrix = new double[matrixA.length][matrixA.length];
+
+            for (int i = 0; i < matrixA.length; i++) {
+                for (int j = 0; j < matrixA[0].length; j++) {
+                    matrix[i][j] = matrixA[i][j] + matrixB[i][j];
+                }
+            }
+            return matrix;
+        }
+        else {
+            return null;
+        }
+    }
+
+    private static double[][] constMul (double[][] matrixA, double conC){
+
+        if (matrixA == null) {return null;}
+
+        double[][] matrix = new double[matrixA.length][matrixA[0].length];
+
+        for (int i = 0; i < matrixA.length; i++) {
+            for (int j = 0; j < matrixA[0].length; j++) {
+                matrix[i][j]=matrixA[i][j] * conC;
+            }
+        }
+        return matrix;
+    }
+
+    private static double[][] matrixMul (double[][] matrixA, double[][] matrixB){
+
+        if (matrixA == null || matrixB == null) {return null;}
+
+        if (matrixA[0].length == matrixB.length) {
+
+            double[][] matrix = new double[matrixA.length][matrixB[0].length];
+
+            for (int i = 0; i < matrixA.length; i++) {
+                for (int j = 0; j < matrixB[0].length; j++) {
+                    for (int k = 0; k < matrixA[0].length; k++) {
+                        matrix[i][j] += matrixA[i][k] * matrixB[k][j];
+                    }
+                }
+            }
+            return matrix;
+        }
+        else {
+            return null;
+        }
+
+    }
+}
