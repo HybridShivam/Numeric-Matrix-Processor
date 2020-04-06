@@ -9,24 +9,24 @@ public class Main {
         //Create Scanner Object
         Scanner sc = new Scanner(System.in);
         //User Choice
-        int oper = mMenu(sc);
+        int choice = matrixMainMenu(sc);
         //Main While Loop
-        while (oper != 0) {
-            switch (oper) {
+        while (choice != 0) {
+            switch (choice) {
                 case 1: {
-                    matrixOutput(addMatrix(matrixCreate(sc),matrixCreate(sc)), oper);
+                    printMatrix(matrixAddition(inputMatrix(sc), inputMatrix(sc)), choice);
                     break;
                 }
                 case 2: {
-                    double[][] matrixTemp;
-                    matrixTemp =  matrixCreate(sc);
+                    double[][] matrix;
+                    matrix =  inputMatrix(sc);
                     System.out.print("Enter constant: ");
-                    double conC = sc.nextDouble();
-                    matrixOutput(constMul(matrixTemp,conC),oper);
+                    double multiplier = sc.nextDouble();
+                    printMatrix(constMul(matrix,multiplier),choice);
                     break;
                 }
                 case 3: {
-                    matrixOutput(matrixMul(matrixCreate(sc),matrixCreate(sc)),oper);
+                    printMatrix(matrixMultiplication(inputMatrix(sc), inputMatrix(sc)),choice);
                     break;
                 }
                 case 4: {
@@ -36,11 +36,15 @@ public class Main {
                     System.out.println("4. Horizontal line");
                     System.out.print("Your choice: ");
 
-                    matrixOutput(matrixTrans(sc.nextInt(),matrixCreate(sc)),oper);
+                    printMatrix(matrixTranspose(sc.nextInt(), inputMatrix(sc)),choice);
                     break;
                 }
                 case 5: {
-                    matrixOutput(matrixDetInput(matrixCreate(sc)),oper);
+                    printMatrix(matrixDeterminantInput(inputMatrix(sc)),choice);
+                    break;
+                }
+                case 6: {
+                    printMatrix(matrixInverse(inputMatrix(sc)),choice);
                     break;
                 }
                 default: {
@@ -49,20 +53,27 @@ public class Main {
                 }
             }
             System.out.println();
-            oper = mMenu(sc);
+            choice = matrixMainMenu(sc);
         }
     }
-    private static int mMenu (Scanner sc){
+
+
+
+    //Main Switching Logic
+    private static int matrixMainMenu(Scanner sc){
         System.out.println("1. Add matrices");
         System.out.println("2. Multiply matrix to a constant");
         System.out.println("3. Multiply matrices");
         System.out.println("4. Transpose matrix");
+        System.out.println("5. Calculate a determinant");
+        System.out.println("6. Inverse matrix");
         System.out.println("0. Exit");
         System.out.print("Your choice: ");
         return sc.nextInt();
     }
 
-    private static double[][] matrixCreate (Scanner sc){
+    //Takes User Input and returns Matrix
+    private static double[][] inputMatrix(Scanner sc){
 
         System.out.print("Enter size of matrix: ");
         double[][] matrix = new double[sc.nextInt()][sc.nextInt()];
@@ -78,14 +89,17 @@ public class Main {
         }
     }
 
-    private static void matrixOutput(double[][] matrix, int oper){
+
+    //Printing Matrix method for all cases except determinant
+    private static void printMatrix(double[][] matrix, int choice){
 
         if (matrix == null){System.out.println("ERROR");}
         else {
+            //For Special Formatting as well as Rounding Off
             DecimalFormat df = new DecimalFormat("#.##");
             df.setRoundingMode(RoundingMode.HALF_DOWN);
             int[] max = new int[matrix[0].length];
-            switch(oper){
+            switch(choice){
 
                 case 1: {System.out.println("The addition result is:");break;}
                 case 2:
@@ -110,11 +124,12 @@ public class Main {
 
     }
 
-    private static void matrixOutput(Double value, int oper) {
+    //To Print the matrix in the case of Determinant
+    private static void printMatrix(Double value, int choice) {
 
         if (value != null) {
             //noinspection SwitchStatementWithTooFewBranches
-            switch (oper){
+            switch (choice){
                 case 5: {
                     //noinspection SwitchStatementWithoutDefaultBranch
                     System.out.println("The determinant is: ");
@@ -126,7 +141,7 @@ public class Main {
 
     }
 
-    private static double[][] addMatrix (double[][] matrixA,double[][] matrixB){
+    private static double[][] matrixAddition(double[][] matrixA, double[][] matrixB){
 
         if (matrixA == null || matrixB == null) {return null;}
 
@@ -146,7 +161,7 @@ public class Main {
         }
     }
 
-    private static double[][] constMul (double[][] matrixA, double conC){
+    private static double[][] constMul (double[][] matrixA, double multiplier){
 
         if (matrixA == null) {return null;}
 
@@ -154,13 +169,13 @@ public class Main {
 
         for (int i = 0; i < matrixA.length; i++) {
             for (int j = 0; j < matrixA[0].length; j++) {
-                matrix[i][j]=matrixA[i][j] * conC;
+                matrix[i][j]=matrixA[i][j] * multiplier;
             }
         }
         return matrix;
     }
 
-    private static double[][] matrixMul (double[][] matrixA, double[][] matrixB){
+    private static double[][] matrixMultiplication(double[][] matrixA, double[][] matrixB){
 
         if (matrixA == null || matrixB == null) {return null;}
 
@@ -184,11 +199,11 @@ public class Main {
     }
 
 
-    private static double[][] matrixTrans (int oper, double[][] matrixA){
+    private static double[][] matrixTranspose(int choice, double[][] matrixA){
 
         double[][] matrix = new double[matrixA.length][matrixA[0].length];
 
-        switch (oper) {
+        switch (choice) {
             case 1: {
                 if (matrixA.length == matrixA[0].length) {
                     for (int i = 0; i < matrixA.length; i++) {
@@ -251,28 +266,30 @@ public class Main {
 
 
 
-    private static Double matrixDet(double[][] matrix){
+    private static Double matrixDeterminant(double[][] matrix){
         if (matrix.length == 2) {return matrix[0][0]*matrix[1][1]-matrix[0][1]*matrix[1][0];}
         else {
             double det = 0.0;
             for (int j = 0; j<matrix.length; j++){
-                if(j%2 == 0) {det += matrix[0][j]*matrixDet(matrixMinor(matrix,0,j));}
-                else {det -= matrix[0][j]*matrixDet(matrixMinor(matrix,0,j));}
+                if(j%2 == 0) {det += matrix[0][j]* matrixDeterminant(matrixMinor(matrix,0,j));}
+                else {det -= matrix[0][j]* matrixDeterminant(matrixMinor(matrix,0,j));}
             }
             return det;
         }
     }
 
-    private static Double matrixDetInput (double[][] matrixA){
+    //Special Input method for Determinant Matrix
+    private static Double matrixDeterminantInput(double[][] matrixA){
 
         if (matrixA.length == matrixA[0].length){
-            return matrixDet(matrixA);
+            return matrixDeterminant(matrixA);
         }
         else {return null;}
 
 
     }
 
+    //Required for calculating Determinant
     private static double[][] matrixMinor(double[][] matrix, int row, int col){
         double [][] temp = new double[matrix.length-1][matrix.length-1];
         int itemp = 0;
@@ -285,6 +302,30 @@ public class Main {
             if (i != row) {itemp++;}
         }
         return temp;
+    }
+
+
+    private static double[][] matrixInverse(double[][] matrix){
+        if (matrix == null) {return null;}
+
+        if (matrix.length != matrix[0].length) {return null;}
+        double det = matrixDeterminant(matrix);
+        if (det == 0) {return null;}
+        return constMul(matrixTranspose(1,matrixCofactor(matrix)),1/det);
+    }
+
+    //Required for calculating Inverse
+    private static double[][] matrixCofactor(double[][] matrix){
+
+        double[][] cofactor = new double[matrix.length][matrix[0].length];
+
+        for (int i = 0; i<matrix.length; i++){
+            for (int j = 0; j<matrix[0].length; j++){
+                if ((i+j)%2 == 0) {cofactor[i][j] = matrixDeterminant(matrixMinor(matrix,i,j));}
+                else {cofactor[i][j] = -1*(matrixDeterminant(matrixMinor(matrix,i,j)));}
+            }
+        }
+        return cofactor;
     }
 
 
